@@ -10,7 +10,7 @@
 
 
 
-The Live demo is available [Here](https://mld-prototype.netlify.app)
+The Live demo is available [Here](https://Vyaparlay-prototype.netlify.app)
 
 ## Description
 
