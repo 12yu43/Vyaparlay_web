@@ -3,7 +3,7 @@ import friend from '../images/clients/friend.png'
 
 const FriendPayment = () => {
   return (
-    <div className="bg-white min-h-screen flex flex-col items-center justify-center">
+    <div className="bg-white min-h-60px flex flex-col items-center justify-center">
       <div className="container mx-auto px-6 lg:px-20 flex flex-col lg:flex-row items-center">
         
         {/* Left Section - Text Content */}

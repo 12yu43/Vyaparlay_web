@@ -4,12 +4,12 @@ import logo from '../images/clients/logo.png'
 
 function Footer() {
   return (
-    <footer className="bg-blue-50 py-10 text-gray-700">
-      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-6">
+    <footer className="bg-[#e4edfb] py-10 text-gray-700">
+      <div className="max-w-6xl mx-auto  grid md:grid-cols-5 gap-10">
         <div>
-        <img src={logo} alt="logo" className="w-44 h-20"/>   
-          <p className="mt-3 text-sm">
-          Vyaparlay is an integrated digital payment suite catering to merchants,
+          <img src={logo} alt="logo" className="w-44 h-20" />
+          <p className="mt-3 text-[15px] text-[#172e73] font-semibold">
+            Vyaparlay is an integrated digital payment suite catering to merchants,
             facilitating seamless transactions for businesses and entrepreneurs.
           </p>
           <div className="mt-4 flex items-center gap-2">
@@ -21,57 +21,71 @@ function Footer() {
 
         {/* Information */}
         <div>
-          <h3 className="text-lg font-semibold text-blue-900">Information</h3>
+          <h3 className="text-lg font-semibold text-[#2c6cb4] text-[22px]">Information</h3>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a href="#" className="hover:text-blue-600">About Vyaparlay</a></li>
-            <li><a href="#" className="hover:text-blue-600">Pricing</a></li>
-            <li><a href="#" className="hover:text-blue-600">Blogs</a></li>
-            <li><a href="#" className="hover:text-blue-600">Careers</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">About Vyaparlay</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Pricing</a></li>
+            <li><a href="#" className=" text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Blogs</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Careers</a></li>
           </ul>
         </div>
 
         {/* Product */}
         <div>
-          <h3 className="text-lg font-semibold text-blue-900">Product</h3>
+          <h3 className="text-lg font-semibold text-[#2c6cb4] text-[22px]">Product</h3>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a href="#" className="hover:text-blue-600">Payment Gateway</a></li>
-            <li><a href="#" className="hover:text-blue-600">Payment Links</a></li>
-            <li><a href="#" className="hover:text-blue-600">Payouts</a></li>
-            <li><a href="#" className="hover:text-blue-600">Frenzo Money</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Payment Gateway</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Payment Links</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Payouts</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Frenzo Money</a></li>
           </ul>
         </div>
 
         {/* Policies */}
         <div>
-          <h3 className="text-lg font-semibold text-blue-900">Policies</h3>
+          <h3 className="text-lg font-semibold text-[#2c6cb4] text-[22px]">Policies</h3>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a href="#" className="hover:text-blue-600">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-blue-600">Refund Policy</a></li>
-            <li><a href="#" className="hover:text-blue-600">Terms of Use</a></li>
-            <li><a href="#" className="hover:text-blue-600">Chargeback Guide</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Privacy Policy</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Refund Policy</a></li>
+            <li><a href="#" className="text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Terms of Use</a></li>
+            <li><a href="#" className=" text-[15px] text-[#172e73] font-semibold hover:text-blue-600">Chargeback Guide</a></li>
           </ul>
         </div>
-      </div>
+        <div>
 
-      {/* Contact & Socials */}
-      <div className="text-center mt-8">
-        <p className="text-sm">IHDP Business Park, Serenia Tower, 3rd Floor, Sector 127, Noida, UP</p>
-        <p className="text-sm mt-2">📧 info@vyaparlay.com | 📞 +91 8448806637</p>
+          <h3 className="text-lg font-semibold text-[#2c6cb4] text-[22px]">Contact Us</h3>
+          <ul className="mt-3 space-y-2 text-sm">
+            <p className="text-sm text-[15px] text-[#172e73] font-semibold">IHDP Business Park, Serenia Tower, 3rd Floor, Sector 127, Noida, UP</p>
+            <p className="text-sm mt-2 text-[15px] text-[#172e73] font-semibold">📧 info@vyaparlay.com | 📞 +91 8448806637</p>
+          </ul>
+          {/* Social Icons */}
+          <div className="flex justify-center gap-4 mt-4">
+            <div className="w-10 h-8 flex items-center justify-center bg-[#2DC4FD] text-white rounded-full cursor-pointer hover:bg-blue-600">
+              <FaFacebookF />
+            </div>
+            <div className="w-10 h-8 flex items-center justify-center bg-[#2DC4FD] text-white rounded-full cursor-pointer hover:bg-pink-600">
+              <FaInstagram />
+            </div>
+            <div className="w-10 h-8 flex items-center justify-center bg-[#2DC4FD] text-white rounded-full cursor-pointer hover:bg-blue-500">
+              <FaLinkedinIn />
+            </div>
+            <div className="w-10 h-8 flex items-center justify-center bg-[#2DC4FD] text-white rounded-full cursor-pointer hover:bg-blue-400">
+              <FaTwitter />
+            </div>
+            <div className="w-10 h-8 flex items-center justify-center bg-[#2DC4FD] text-white rounded-full cursor-pointer hover:bg-red-600">
+              <FaYoutube />
+            </div>
+          </div>
 
-        {/* Social Icons */}
-        <div className="flex justify-center gap-4 mt-4 text-blue-800 text-xl">
-          <FaFacebookF className="cursor-pointer hover:text-blue-600" />
-          <FaInstagram className="cursor-pointer hover:text-pink-600" />
-          <FaLinkedinIn className="cursor-pointer hover:text-blue-500" />
-          <FaTwitter className="cursor-pointer hover:text-blue-400" />
-          <FaYoutube className="cursor-pointer hover:text-red-600" />
         </div>
       </div>
 
+
+
+
       {/* Copyright */}
-      <div className="text-center text-sm text-gray-500 mt-6">
-        © 2024 Digidoos Payments Services Pvt. Ltd. All rights reserved.
-      </div>
+      <div className="border-t border-gray-300 mt-6 pt-4 text-center text-sm text-[#7393a4] font-semibold">
+        © 2024 Digidios Payments Services Private Limited. The content available on the website is protected by copyright laws. All rights reserved.      </div>
     </footer>
   );
 }

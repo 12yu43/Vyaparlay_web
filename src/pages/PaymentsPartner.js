@@ -41,7 +41,7 @@ const paymentOptions = [
 
 const PaymentsPartner = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-800 to-blue-600 py-16 text-white">
+    <div className="bg-gradient-to-r from-blue-800 to-blue-600 py-24 text-white" style={{ clipPath: "polygon(0 8%, 100% 0, 100% 91%, 0% 100%)" }}>
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl font-bold">The Payments Partner You Need</h2>
         <p className="text-lg mt-2">

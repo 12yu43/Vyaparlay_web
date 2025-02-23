@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import NavBar from '../components/Navbar/NavBar';
 import Footer from '../components/Footer';
-import {useDocTitle} from '../components/CustomHook';
+import { useDocTitle } from '../components/CustomHook';
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import contact from '../images/clients/contact.png'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGlobe, FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
+
 
 const Contact = () => {
     useDocTitle('Vyaparlay - Send us a message')
@@ -42,180 +45,167 @@ const Contact = () => {
             url: process.env.REACT_APP_CONTACT_API,
             data: fData,
             headers: {
-                'Content-Type':  'multipart/form-data'
+                'Content-Type': 'multipart/form-data'
             }
         })
-        .then(function (response) {
-            document.getElementById('submitBtn').disabled = false;
-            document.getElementById('submitBtn').innerHTML = 'send message';
-            clearInput()
-            Notiflix.Report.success(
-                'Success',
-                response.data.message,
-                'Okay',
-            );
-        })
-        .catch(function (error) {
-            document.getElementById('submitBtn').disabled = false;
-            document.getElementById('submitBtn').innerHTML = 'send message';
-            const { response } = error;
-            if(response.status === 500) {
-                Notiflix.Report.failure(
-                    'An error occurred',
+            .then(function (response) {
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('submitBtn').innerHTML = 'send message';
+                clearInput()
+                Notiflix.Report.success(
+                    'Success',
                     response.data.message,
                     'Okay',
                 );
-            }
-            if(response.data.errors !== null) {
-                setErrors(response.data.errors)
-            }
-            
-        });
+            })
+            .catch(function (error) {
+                document.getElementById('submitBtn').disabled = false;
+                document.getElementById('submitBtn').innerHTML = 'send message';
+                const { response } = error;
+                if (response.status === 500) {
+                    Notiflix.Report.failure(
+                        'An error occurred',
+                        response.data.message,
+                        'Okay',
+                    );
+                }
+                if (response.data.errors !== null) {
+                    setErrors(response.data.errors)
+                }
+
+            });
     }
     return (
         <>
             <div>
                 <NavBar />
             </div>
-            <div id='contact' className="flex justify-center items-center mt-8 w-full bg-white py-12 lg:py-24 ">
-                <div className="container mx-auto my-8 px-4 lg:px-20" data-aos="zoom-in">
 
-                <form onSubmit={sendEmail}>
+            <div className="flex justify-center">
+                <img
+                    src={contact}
+                    alt="FrenzoPay Illustration"
+                    className="w-full h-[50vh] object-cover"
+                />
+            </div>
+            <div id='contact' className="flex justify-center items-center  w-full bg-white py-12 lg:py-24 ">
 
-                    <div className="w-full bg-white p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
-                        <div className="flex">
-                            <h1 className="font-bold text-center lg:text-left text-blue-900 uppercase text-4xl">Send us a message</h1>
-                        </div>
-                        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 mt-5">
-                                <div>
-                                    <input 
-                                        name="first_name" 
-                                        className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                        type="text" 
-                                        placeholder="First Name*" 
-                                        value={firstName}
-                                        onChange={(e)=> setFirstName(e.target.value)}
-                                        onKeyUp={clearErrors}
-                                    />
-                                    {errors && 
-                                        <p className="text-red-500 text-sm">{errors.first_name}</p>
-                                    }
-                                </div>
-                                
-                                <div>
-                                    <input 
-                                        name="last_name" 
-                                        className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                        type="text" 
-                                        placeholder="Last Name*"
-                                        value={lastName}
-                                        onChange={(e)=> setLastName(e.target.value)}
-                                        onKeyUp={clearErrors}
-                                    />
-                                    {errors && 
-                                        <p className="text-red-500 text-sm">{errors.last_name}</p>
-                                    }
-                                </div>
+                <div className="container max-w-6xl bg-white shadow-lg rounded-lg p-8">
 
-                                <div>
-                                    <input 
-                                        name="email"
-                                        className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                        type="email" 
-                                        placeholder="Email*"
-                                        value={email}
-                                        onChange={(e)=> setEmail(e.target.value)}
-                                        onKeyUp={clearErrors}   
-                                    />
-                                    {errors && 
-                                        <p className="text-red-500 text-sm">{errors.email}</p>
-                                    }
-                                </div>
-
-                                <div>
+                    <div className="flex flex-col md:flex-row gap-8">
+                        <div className="flex-1 p-6 bg-white shadow-md rounded-md">
+                            <h2 className="text-4xl font-semibold text-[#172e73] flex items-center gap-2">
+                                📞 Contact Us
+                            </h2>
+                            <p className="text-base text-gray-900 mt-2">
+                                Get in touch and let us know how we can help. For general queries,
+                                including partnership opportunities, please email{" "}
+                                <a href="mailto:info@frenzopay.com" className="text-blue-600 font-medium">
+                                    info@frenzopay.com
+                                </a>.
+                            </p>
+                            {/* Form Fields */}
+                            <form className="mt-6 space-y-4">
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <input
-                                        name="phone_number" 
-                                        className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                        type="number" 
-                                        placeholder="Phone*"
-                                        value={phone}
-                                        onChange={(e)=> setPhone(e.target.value)}
-                                        onKeyUp={clearErrors}
+                                        type="text"
+                                        placeholder="First Name"
+                                        className="p-3 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     />
-                                    {errors && 
-                                        <p className="text-red-500 text-sm">{errors.phone_number}</p>
-                                    }
+                                    <input
+                                        type="text"
+                                        placeholder="Last Name"
+                                        className="p-3 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
                                 </div>
-                        </div>
-                        <div className="my-4">
-                            <textarea 
-                                name="message" 
-                                placeholder="Message*" 
-                                className="w-full h-32 bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                value={message}
-                                onChange={(e)=> setMessage(e.target.value)}
-                                onKeyUp={clearErrors}
-                            ></textarea>
-                            {errors && 
-                                <p className="text-red-500 text-sm">{errors.message}</p>
-                            }
-                        </div>
-                        <div className="my-2 w-1/2 lg:w-2/4">
-                            <button type="submit" id="submitBtn" className="uppercase text-sm font-bold tracking-wide bg-gray-500 hover:bg-blue-900 text-gray-100 p-3 rounded-lg w-full 
-                                    focus:outline-none focus:shadow-outline">
-                                Send Message
-                            </button>
-                        </div>
-                </div>
-                </form>
-                        <div
-                            className="w-full  lg:-mt-96 lg:w-2/6 px-8 py-6 ml-auto bg-blue-900 rounded-2xl">
-                            <div className="flex flex-col text-white">
-                                
-                                <div className="flex my-4 w-2/3 lg:w-3/4">
-                                    <div className="flex flex-col">
-                                        <i className="fas fa-map-marker-alt pt-2 pr-2" />
-                                    </div>
-                                    <div className="flex flex-col">
-                                        <h2 className="text-2xl">Office Address</h2>
-                                        <p className="text-gray-400">Ilo Awela, Ota, Ogun State</p>
-                                    </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <input
+                                        type="email"
+                                        placeholder="E-mail"
+                                        className="p-3 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
+                                    <input
+                                        type="tel"
+                                        placeholder="Phone Number"
+                                        className="p-3 border rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    />
                                 </div>
-                    
-                    <div className="flex my-4 w-2/3 lg:w-1/2">
-                        <div className="flex flex-col">
-                        <i className="fas fa-phone-alt pt-2 pr-2" />
+                                <textarea
+                                    placeholder="Leave Us A Message"
+                                    className="p-3 border rounded-md w-full h-28 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                ></textarea>
+
+                                {/* ReCAPTCHA Placeholder */}
+                                <div className="bg-gray-200 p-4 rounded-md text-center text-sm text-gray-500">
+                                    [ReCAPTCHA goes here]
+                                </div>
+
+                                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold p-3 rounded-md">
+                                    Submit
+                                </button>
+                            </form>
                         </div>
 
-                        <div className="flex flex-col">
-                        <h2 className="text-2xl">Call Us</h2>
-                        <p className="text-gray-400">Tel: 08055384406</p>
-                        
-                            <div className='mt-5'>
-                                <h2 className="text-2xl">Send an E-mail</h2>
-                                <p className="text-gray-400">info@Vyaparlay.ng</p>
+                        {/* Contact Info Cards */}
+                        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+                            {/* Email Card */}
+                            <div className="bg-[#2D5EE3] text-white p-6 rounded-md shadow-md flex flex-col items-center justify-center text-center">
+                                <FaEnvelope className="text-2xl mb-2" />
+                                <h3 className="font-semibold">Email</h3>
+                                <p className="text-sm">info@frenzopay.com</p>
                             </div>
-                       
+
+                            {/* Phone Card */}
+                            <div className="bg-[#EAF0FD] text-blue-800 p-6 rounded-md shadow-md flex flex-col items-center justify-center text-center">
+                                <FaPhone className="text-2xl mb-2" />
+                                <h3 className="font-semibold">Phone</h3>
+                                <p className="text-sm">+91 8448806637</p>
+                            </div>
+
+                            {/* Address Card */}
+                            <div className="bg-[#EAF0FD] text-blue-800 p-6 rounded-md shadow-md flex flex-col items-center justify-center text-center">
+                                <FaMapMarkerAlt className="text-2xl mb-2" />
+                                <h3 className="font-semibold">Address</h3>
+                                <p className="text-sm">
+                                    IHDP Business Park, Serenia Tower, 3rd Floor, Sector-127 Noida, 201301 U.P
+                                </p>
+                            </div>
+
+                            {/* Socials Card */}
+                            <div className="bg-[#2D5EE3] text-white p-6 rounded-md shadow-md flex flex-col items-center justify-center text-center">
+                                <FaGlobe className="text-2xl mb-2" />
+                                <h3 className="font-semibold">Socials</h3>
+                                <div className="flex gap-3 mt-2">
+                                    <FaFacebookF className="cursor-pointer hover:text-blue-400" />
+                                    <FaInstagram className="cursor-pointer hover:text-pink-400" />
+                                    <FaLinkedinIn className="cursor-pointer hover:text-blue-300" />
+                                    <FaTwitter className="cursor-pointer hover:text-blue-200" />
+                                    <FaYoutube className="cursor-pointer hover:text-red-400" />
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-                    
-                    <div className="flex my-4 w-2/3 lg:w-1/2">
-                        <a href="https://www.facebook.com/ENLIGHTENEERING/" target="_blank" rel="noreferrer" className="rounded-full flex justify-center bg-white h-8 text-blue-900  w-8  mx-1 text-center pt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className='fill-current font-black hover:animate-pulse'><path d="M13.397 20.997v-8.196h2.765l.411-3.209h-3.176V7.548c0-.926.258-1.56 1.587-1.56h1.684V3.127A22.336 22.336 0 0 0 14.201 3c-2.444 0-4.122 1.492-4.122 4.231v2.355H7.332v3.209h2.753v8.202h3.312z"></path></svg>
-                        </a>
-                        <a href="https://www.linkedin.com/company/enlighteneering-inc-" target="_blank" rel="noreferrer" className="rounded-full flex justify-center bg-white h-8 text-blue-900  w-8  mx-1 text-center pt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className='fill-current font-black hover:animate-pulse'><circle cx="4.983" cy="5.009" r="2.188"></circle><path d="M9.237 8.855v12.139h3.769v-6.003c0-1.584.298-3.118 2.262-3.118 1.937 0 1.961 1.811 1.961 3.218v5.904H21v-6.657c0-3.27-.704-5.783-4.526-5.783-1.835 0-3.065 1.007-3.568 1.96h-.051v-1.66H9.237zm-6.142 0H6.87v12.139H3.095z"></path></svg>
-                        </a>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
+            <div className="container max-w-full mt-10  mb-2 text-center">
+                <h1 className="text-4xl font-bold text-[#172e73] mb-4">
+                    Find Us On Google Maps
+                </h1>
+                <div className="w-full h-80 overflow-hidden rounded-lg shadow-md mb-0.5">
+                    <iframe
+                        className="w-full h-full"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345093707!2d-122.4194152846773!3d37.77492977975992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c3c8c6e6b%3A0x4c5b3e8b7445a3c6!2sSan+Francisco%2C+CA!5e0!3m2!1sen!2sus!4v1636738910112!5m2!1sen!2sus"
+                        allowFullScreen=""
+                        loading="lazy"
+                    ></iframe>
+                </div>
+            </div>
+
             <Footer />
         </>
-
-
     )
 }
 
 export default Contact;
+

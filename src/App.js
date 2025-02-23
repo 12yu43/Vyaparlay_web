@@ -13,6 +13,8 @@ import DemoProduct from './pages/DemoProduct';
 import { useDocTitle } from './components/CustomHook';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './components/HomaPage';
+import Career from './pages/Career';
+import Blogs from './pages/Blogs';
 
 
 function App() {
@@ -41,6 +43,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/get-demo" element={<DemoProduct />} />
             <Route path="/home-page" element={<HomePage />} />
+            <Route path="/Career" element={<Career />} />
+            <Route path="/Blogs" element={<Blogs />} />
           </Routes>
         </ScrollToTop>
       </Router>

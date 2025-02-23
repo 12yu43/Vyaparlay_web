@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
+import { MdKeyboardArrowDown } from "react-icons/md";
+
 
 const NavLinks = () => {
     const [isProductsOpen, setIsProductsOpen] = useState(false);
@@ -7,39 +9,40 @@ const NavLinks = () => {
 
     return (
         <div className="relative flex space-x-4">
-            <HashLink className="px-4 font-extrabold text-white hover:text-blue-900" smooth to="/home-page">
+            <HashLink className="px-4 font-extrabold text-[17px] text-blue hover:text-blue-900" smooth to="/home-page">
                 Home
             </HashLink>
-            <HashLink className="px-4 font-extrabold text-white hover:text-blue-900" smooth to="/#services">
+            <HashLink className="px-4 font-extrabold text-[17px] text-blue hover:text-blue-900" smooth to="/#services">
                 About
             </HashLink>
 
             {/* Products Dropdown */}
             <div className="relative">
-                <button
-                    className="px-4 font-extrabold text-white hover:text-blue-900 focus:outline-none"
-                    onClick={() => setIsProductsOpen(!isProductsOpen)}
-                >
-                    Products ▼
-                </button>
+            <button
+                className="flex items-center gap-1 px-4 font-extrabold text-[17px] text-blue hover:text-blue-900 focus:outline-none"
+                onClick={() => setIsProductsOpen(!isProductsOpen)}
+            >
+                Products
+                <MdKeyboardArrowDown size={24} /> 
+            </button>
                 {isProductsOpen && (
-                    <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
+                    <div className="absolute left-0 mt-2 w-48 bg-blue text-[17px] shadow-lg rounded-md">
                         <HashLink
                             className="block px-4 py-2 text-blue-900 hover:bg-gray-100"
                             to="/#payment-gateway"
                             onClick={() => setIsProductsOpen(false)}
                         >
-                            Payment Gateway
+                            Payment Gateway 
                         </HashLink>
                         <HashLink
-                            className="block px-4 py-2 text-blue-900 hover:bg-gray-100"
+                            className="block px-4 py-2 text-blue-900 text-[17px] hover:bg-gray-100"
                             to="/#payment-links"
                             onClick={() => setIsProductsOpen(false)}
                         >
                             Payment Links
                         </HashLink>
                         <HashLink
-                            className="block px-4 py-2 text-blue-900 hover:bg-gray-100"
+                            className="block px-4 py-2 text-blue-900 text-[17px] hover:bg-gray-100"
                             to="/#payouts"
                             onClick={() => setIsProductsOpen(false)}
                         >
@@ -50,24 +53,24 @@ const NavLinks = () => {
             </div>
 
             {/* Resources Dropdown */}
-            <div className="relative">
+            <div className="relative ">
                 <button
-                    className="px-4 font-extrabold text-white hover:text-blue-900 focus:outline-none"
+                    className="flex items-center gap-1 px-4 font-extrabold text-[17px] text-blue hover:text-blue-900 focus:outline-none"
                     onClick={() => setIsResourcesOpen(!isResourcesOpen)}
                 >
-                    Resources ▼
+                    Resources <MdKeyboardArrowDown size={24} /> 
                 </button>
                 {isResourcesOpen && (
-                    <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md">
+                    <div className="absolute left-0 mt-2 w-48 bg-blue text-[17px] shadow-lg rounded-md">
                         <HashLink
-                            className="block px-4 py-2 text-blue-900 hover:bg-gray-100"
-                            to="/#blogs"
+                            className="block px-4 py-2 text-blue-900 text-[17px] hover:bg-gray-100"
+                            to="/Blogs"
                             onClick={() => setIsResourcesOpen(false)}
                         >
                             Blogs
                         </HashLink>
                         <HashLink
-                            className="block px-4 py-2 text-blue-900 hover:bg-gray-100"
+                            className="block px-4 py-2 text-blue-900 text-[17px] hover:bg-gray-100"
                             to="/#frenzo-aware"
                             onClick={() => setIsResourcesOpen(false)}
                         >
@@ -77,10 +80,10 @@ const NavLinks = () => {
                 )}
             </div>
 
-            <HashLink className="px-4 font-extrabold text-white hover:text-blue-900" to="/contact#contact">
+            <HashLink className="px-4 font-extrabold text-blue hover:text-blue-900 text-[17px]" to="/Career">
                 Careers
             </HashLink>
-            <HashLink className="px-4 font-extrabold text-white hover:text-blue-900" to="/contact#contact">
+            <HashLink className="px-4 font-extrabold text-blue hover:text-blue-900 text-[17px]" to="/contact#contact">
                 Contact
             </HashLink>
         </div>
